@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import moment from 'moment';
-import ReactTooltip from 'react-tooltip';
-import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
-import SubscribeForm from '../components/SubscribeForm.js';
-import Parser from 'rss-parser';
+import { useEffect, useState } from 'react'
+import moment from 'moment'
+import ReactTooltip from 'react-tooltip'
+import Head from 'next/head'
+import styles from '../styles/Home.module.scss'
+import SubscribeForm from '../components/SubscribeForm.js'
+import Parser from 'rss-parser'
 
 export default function Home(props) {
-  const [showTip, setShowTip] = useState(false);
+  const [showTip, setShowTip] = useState(false)
 
   useEffect(() => {
-    setShowTip(true);
-  }, []);
+    setShowTip(true)
+  }, [])
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Tony Dinh</title>
+        <title>Michael Lindenau</title>
         <meta
           name="description"
           content="Welcome to my corner of the internet"
@@ -99,8 +99,8 @@ export default function Home(props) {
       <main className={styles.main}>
         <section className={styles.intro}>
           <img className={styles.avatar} src="/tonydinh.png" />
-          <h1 className={styles.title}>Tony Dinh</h1>
-          <p>Welcome to my corner of the internet!</p>
+          <h1 className={styles.title}>Michael Lindenau</h1>
+          <p>Chasing freedom through business!</p>
         </section>
         <div className={styles.sections}>
           <section>
@@ -108,11 +108,11 @@ export default function Home(props) {
             <ul className={styles.list}>
               <li>
                 <span style={{ marginRight: '10px' }}>🧑</span>
-                28 years old
+                32 years old
               </li>
               <li>
                 <span style={{ marginRight: '10px' }}>🇻🇳</span>
-                From Vietnam
+                From South Africa
               </li>
               <li>
                 <span style={{ marginRight: '10px' }}>👨‍💻</span>
@@ -120,12 +120,12 @@ export default function Home(props) {
               </li>
 
               <li>
-                <span style={{ marginRight: '10px' }}>🔨</span>
-                Full-time Indie Hacker
+                <span style={{ marginRight: '10px' }}>🔨</span>I build and scale
+                things
               </li>
               <li>
-                <span style={{ marginRight: '10px' }}>😻</span>
-                Cats > Dogs
+                <span style={{ marginRight: '10px' }}>✍️</span>
+                producing > consuming
               </li>
             </ul>
           </section>
@@ -135,14 +135,14 @@ export default function Home(props) {
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>🧰</span>
-                  <a href="https://devutils.app">DevUtils.app</a>
+                  <a href="https://devutils.app">Nurturly</a>
                 </div>
                 <div className={styles.subtitle}>{props.devutils}</div>
               </li>
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>🎩</span>
-                  <a href="https://blackmagic.so">BlackMagic.so</a>
+                  <a href="https://blackmagic.so">CallCounters</a>
                 </div>
                 <div className={styles.subtitle}>{props.blackmagic}</div>
               </li>
@@ -168,6 +168,7 @@ export default function Home(props) {
           <section>
             <h2>Social Media</h2>
             <ul className={styles.list}>
+              {/*}
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>🐦</span>
@@ -182,10 +183,13 @@ export default function Home(props) {
                 </div>
                 <div className={styles.subtitle}>{props.youtube}</div>
               </li>
+              */}
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>💼</span>
-                  <a href="https://www.linkedin.com/in/tdinh-me/">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/mikelindenau/">
+                    LinkedIn
+                  </a>
                 </div>
                 <div className={styles.subtitle}>I post once a week</div>
               </li>
@@ -288,7 +292,7 @@ export default function Home(props) {
             return {
               top,
               left: typeof node === 'string' ? left : Math.max(left, 0),
-            };
+            }
           }}
         />
       ) : null}
@@ -312,28 +316,24 @@ export default function Home(props) {
         }
       `}</style>
     </div>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const parser = new Parser();
-  const [
-    devutils,
-    blackmagic,
-    newsletter,
-    youtube,
-    tweets,
-  ] = await Promise.all([
-    parser.parseURL('https://devutils.app/changelog.rss'),
-    parser.parseURL('https://newsletter.blackmagic.so/?format=rss'),
-    parser.parseURL('https://newsletter.tonydinh.com/?format=rss'),
-    parser.parseURL(
-      'https://www.youtube.com/feeds/videos.xml?channel_id=UCYOiXua3ot8x7D9uF7ipUPg'
-    ),
-    fetch(
-      'https://api.blackmagic.so/get_tweets_last_24hrs?id=331379561'
-    ).then((r) => r.json()),
-  ]);
+  const parser = new Parser()
+  const [devutils, blackmagic, newsletter, youtube, tweets] = await Promise.all(
+    [
+      parser.parseURL('https://devutils.app/changelog.rss'),
+      parser.parseURL('https://newsletter.blackmagic.so/?format=rss'),
+      parser.parseURL('https://newsletter.tonydinh.com/?format=rss'),
+      parser.parseURL(
+        'https://www.youtube.com/feeds/videos.xml?channel_id=UCYOiXua3ot8x7D9uF7ipUPg'
+      ),
+      fetch(
+        'https://api.blackmagic.so/get_tweets_last_24hrs?id=331379561'
+      ).then((r) => r.json()),
+    ]
+  )
 
   return {
     props: {
@@ -371,7 +371,7 @@ export async function getStaticProps() {
         (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime()
       ),
     },
-  };
+  }
 }
 
 function fromNow(
@@ -379,13 +379,13 @@ function fromNow(
   nowDate = Date.now(),
   rft = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' })
 ) {
-  const SECOND = 1000;
-  const MINUTE = 60 * SECOND;
-  const HOUR = 60 * MINUTE;
-  const DAY = 24 * HOUR;
-  const WEEK = 7 * DAY;
-  const MONTH = 30 * DAY;
-  const YEAR = 365 * DAY;
+  const SECOND = 1000
+  const MINUTE = 60 * SECOND
+  const HOUR = 60 * MINUTE
+  const DAY = 24 * HOUR
+  const WEEK = 7 * DAY
+  const MONTH = 30 * DAY
+  const YEAR = 365 * DAY
   const intervals = [
     { ge: YEAR, divisor: YEAR, unit: 'year' },
     { ge: MONTH, divisor: MONTH, unit: 'month' },
@@ -395,21 +395,21 @@ function fromNow(
     { ge: MINUTE, divisor: MINUTE, unit: 'minute' },
     { ge: 30 * SECOND, divisor: SECOND, unit: 'seconds' },
     { ge: 0, divisor: 1, text: 'just now' },
-  ];
+  ]
   const now =
     typeof nowDate === 'object'
       ? nowDate.getTime()
-      : new Date(nowDate).getTime();
+      : new Date(nowDate).getTime()
   const diff =
-    now - (typeof date === 'object' ? date : new Date(date)).getTime();
-  const diffAbs = Math.abs(diff);
+    now - (typeof date === 'object' ? date : new Date(date)).getTime()
+  const diffAbs = Math.abs(diff)
   for (const interval of intervals) {
     if (diffAbs >= interval.ge) {
-      const x = Math.round(Math.abs(diff) / interval.divisor);
-      const isFuture = diff < 0;
+      const x = Math.round(Math.abs(diff) / interval.divisor)
+      const isFuture = diff < 0
       return interval.unit
         ? rft.format(isFuture ? x : -x, interval.unit)
-        : interval.text;
+        : interval.text
     }
   }
 }
