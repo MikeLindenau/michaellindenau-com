@@ -111,7 +111,7 @@ export default function Home(props) {
                 32 years old
               </li>
               <li>
-                <span style={{ marginRight: '10px' }}>🇻🇳</span>
+                <span style={{ marginRight: '10px' }}>🇿🇦</span>
                 From South Africa
               </li>
               <li>
