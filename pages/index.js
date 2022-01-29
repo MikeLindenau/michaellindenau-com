@@ -206,23 +206,27 @@ export default function Home(props) {
             </ul>
           </section>
           <section>
-            <h2>Other Places</h2>
+            <h2>Other Things</h2>
             <ul className={styles.list}>
               <li>
                 <div>
-                  <span style={{ marginRight: '10px' }}>😺</span>
-                  <a href="https://www.producthunt.com/@trungdq88">
-                    Product Hunt
+                  <span style={{ marginRight: '10px' }}>💾</span>
+                  <a href="https://techcrunch.com/2011/07/21/cloud-storage-company-cx-raises-5m-from-eric-schmidt-and-others-acquires-fileden/">
+                    Fileden
                   </a>
                 </div>
-                <div className={styles.subtitle}>Products launched: 5</div>
+                <div className={styles.subtitle}>
+                  Micro acquired it, fixed it, sold it.
+                </div>
               </li>
               <li>
                 <div>
-                  <span style={{ marginRight: '10px' }}>💵</span>
-                  <a href="https://tonydinh.gumroad.com/">Gumroad</a>
+                  <span style={{ marginRight: '10px' }}>🦄</span>
+                  <a href="https://truststamp.ai/">Truststamp</a>
                 </div>
-                <div className={styles.subtitle}>Products created: 1</div>
+                <div className={styles.subtitle}>
+                  Helped it start, watched it grow
+                </div>
               </li>
               <li>
                 <div>
@@ -232,13 +236,6 @@ export default function Home(props) {
                   </a>
                 </div>
                 <div className={styles.subtitle}>Mostly lurking 😅</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💰</span>
-                  <a href="https://paypal.me/trungdq88">PayPal</a>
-                </div>
-                <div className={styles.subtitle}>Thanks for your tip!</div>
               </li>
             </ul>
           </section>
