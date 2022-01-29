@@ -134,14 +134,14 @@ export default function Home(props) {
             <ul className={styles.list}>
               <li>
                 <div>
-                  <span style={{ marginRight: '10px' }}>🧰</span>
+                  <span style={{ marginRight: '10px' }}>📎</span>
                   <a href="https://nurturly.io">Nurturly</a>
                 </div>
                 <div className={styles.subtitle}>{props.devutils}</div>
               </li>
               <li>
                 <div>
-                  <span style={{ marginRight: '10px' }}>🎩</span>
+                  <span style={{ marginRight: '10px' }}>☎️</span>
                   <a href="https://callcounters.com">CallCounters</a>
                 </div>
                 <div className={styles.subtitle}>{props.blackmagic}</div>
