@@ -98,7 +98,7 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <section className={styles.intro}>
-          <img className={styles.avatar} src="/tonydinh.png" />
+          <img className={styles.avatar} src="/mikel.png" />
           <h1 className={styles.title}>Michael Lindenau</h1>
           <p style={{ marginTop: 10 }}>Chasing freedom through business!</p>
         </section>
