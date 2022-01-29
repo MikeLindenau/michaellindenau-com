@@ -112,7 +112,7 @@ export default function Home(props) {
               </li>
               <li>
                 <span style={{ marginRight: '10px' }}>🇺🇸</span>
-                South African born, American made
+                American raised
               </li>
               <li>
                 <span style={{ marginRight: '10px' }}>👨‍💻</span>
