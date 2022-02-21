@@ -314,16 +314,17 @@ export async function getStaticProps() {
 
   return {
     props: {
-      devutils: `Last version: ${fromNow(new Date(devutils.items[0].isoDate))}`,
-      blackmagic: `Last update: ${fromNow(
+      //devutils: `Last version: ${fromNow(new Date(devutils.items[0].isoDate))}`,
+      /*blackmagic: `Last update: ${fromNow(
         new Date(blackmagic.items[0].isoDate)
-      )}`,
+      )}`,*/
       newsletter: `Last issue: ${fromNow(
         new Date(newsletter.items[0].isoDate)
       )}`,
-      youtube: `Last video: ${fromNow(new Date(youtube.items[0].isoDate))}`,
-      tweets: `${tweets.count} tweets last 48hrs`,
+      //youtube: `Last video: ${fromNow(new Date(youtube.items[0].isoDate))}`,
+      //tweets: `${tweets.count} tweets last 48hrs`,
       latest: [
+        /*
         ...devutils.items.map((item) => ({
           ...item,
           source: 'DevUtils Product Updates',
@@ -333,7 +334,7 @@ export async function getStaticProps() {
           ...item,
           source: `BlackMagic.so Product Updates`,
           color: '#333333',
-        })),
+        })),*/
         ...newsletter.items.map((item) => ({
           ...item,
           source: `Mike's Newsletter`,
