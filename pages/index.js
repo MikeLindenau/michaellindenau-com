@@ -139,6 +139,7 @@ export default function Home(props) {
                 </div>
                 <div className={styles.subtitle}>{props.devutils}</div>
               </li>
+              {/*}
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>☎️</span>
@@ -146,16 +147,18 @@ export default function Home(props) {
                 </div>
                 <div className={styles.subtitle}>{props.blackmagic}</div>
               </li>
+              {*/}
             </ul>
             <h2>Writings</h2>
             <ul className={styles.list}>
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>💌</span>
-                  <a href="https://newsletter.mikelindenau.com">Newsletter</a>
+                  <a href="https://mike73f.substack.com/">Newsletter</a>
                 </div>
                 <div className={styles.subtitle}>{props.newsletter}</div>
               </li>
+              {/*
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>✏️</span>
@@ -163,6 +166,7 @@ export default function Home(props) {
                 </div>
                 <div className={styles.subtitle}>Notes, tips, and FAQs</div>
               </li>
+              */}
             </ul>
           </section>
           <section>
@@ -227,15 +231,6 @@ export default function Home(props) {
                 <div className={styles.subtitle}>
                   Helped it start, watched it grow
                 </div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🔨</span>
-                  <a href="https://www.indiehackers.com/tonydinh">
-                    Indie Hackers
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Mostly lurking 😅</div>
               </li>
             </ul>
           </section>
@@ -306,19 +301,16 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const parser = new Parser()
-  const [devutils, blackmagic, newsletter, youtube, tweets] = await Promise.all(
-    [
-      parser.parseURL('https://devutils.app/changelog.rss'),
-      parser.parseURL('https://newsletter.blackmagic.so/?format=rss'),
-      parser.parseURL('https://newsletter.tonydinh.com/?format=rss'),
+  const [newsletter] = await Promise.all([
+    parser.parseURL('https://mike73f.substack.com/feed'),
+    /*
       parser.parseURL(
         'https://www.youtube.com/feeds/videos.xml?channel_id=UCYOiXua3ot8x7D9uF7ipUPg'
       ),
       fetch(
         'https://api.blackmagic.so/get_tweets_last_24hrs?id=331379561'
-      ).then((r) => r.json()),
-    ]
-  )
+      ).then((r) => r.json()),*/
+  ])
 
   return {
     props: {
@@ -344,13 +336,8 @@ export async function getStaticProps() {
         })),
         ...newsletter.items.map((item) => ({
           ...item,
-          source: `Tony Dinh's Newsletter`,
+          source: `Mike's Newsletter`,
           color: '#5383ec',
-        })),
-        ...youtube.items.map((item) => ({
-          ...item,
-          source: `Tony Dinh's Youtube Channel`,
-          color: '#ea3323',
         })),
       ].sort(
         (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime()
