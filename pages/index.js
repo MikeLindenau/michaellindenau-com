@@ -130,7 +130,7 @@ export default function Home(props) {
             </ul>
           </section>
           <section>
-            <h2>My Products</h2>
+            <h2>My Projects</h2>
             <ul className={styles.list}>
               <li>
                 <div>
