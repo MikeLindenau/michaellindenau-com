@@ -34,7 +34,7 @@
 .avatar {
   border-radius: 100%;
   width: 100px;
-  height: 100px;
+  /*height: 100px;*/
   margin-bottom: 10px;
 }
 
@@ -213,7 +213,6 @@
     }
   }
 }
-
 
 @media (prefers-color-scheme: dark) {
   .subtitle {
