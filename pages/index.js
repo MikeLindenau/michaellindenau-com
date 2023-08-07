@@ -108,7 +108,7 @@ export default function Home(props) {
             <ul className={styles.list}>
               <li>
                 <span style={{ marginRight: '10px' }}>🧑</span>
-                32 years old
+                33 years old
               </li>
               <li>
                 <span style={{ marginRight: '10px' }}>🇺🇸</span>
