@@ -17,6 +17,8 @@ export default function Home(props) {
     <div className={styles.container}>
       <Head>
         <title>Michael Lindenau</title>
+
+<script src="https://cdn.usefathom.com/script.js" data-site="EWWVUEKC" defer></script>
         <meta
           name="description"
           content="Welcome to my corner of the internet"
