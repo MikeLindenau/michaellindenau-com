@@ -145,6 +145,13 @@ export default function Home(props) {
                 </div>
                 <div className={styles.subtitle}>{props.devutils}</div>
               </li>
+              <li>
+                <div>
+                  <span style={{ marginRight: '10px' }}>📎</span>
+                  <a href="https://nscale.io">nscale</a>
+                </div>
+                <div className={styles.subtitle}>{props.devutils}</div>
+              </li>
               {/*}
               <li>
                 <div>
