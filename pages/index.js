@@ -1,24 +1,28 @@
-import { useEffect, useState } from 'react'
-import moment from 'moment'
-import ReactTooltip from 'react-tooltip'
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
-import SubscribeForm from '../components/SubscribeForm.js'
-import Parser from 'rss-parser'
+import { useEffect, useState } from 'react';
+import moment from 'moment';
+import ReactTooltip from 'react-tooltip';
+import Head from 'next/head';
+import styles from '../styles/Home.module.scss';
+import SubscribeForm from '../components/SubscribeForm.js';
+import Parser from 'rss-parser';
 
 export default function Home(props) {
-  const [showTip, setShowTip] = useState(false)
+  const [showTip, setShowTip] = useState(false);
 
   useEffect(() => {
-    setShowTip(true)
-  }, [])
+    setShowTip(true);
+  }, []);
 
   return (
     <div className={styles.container}>
       <Head>
         <title>Michael Lindenau</title>
 
-<script src="https://cdn.usefathom.com/script.js" data-site="EWWVUEKC" defer></script>
+        <script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="EWWVUEKC"
+          defer
+        ></script>
         <meta
           name="description"
           content="Welcome to my corner of the internet"
@@ -137,7 +141,7 @@ export default function Home(props) {
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>📎</span>
-                  <a href="https://nurturly.io">Nurturly</a>
+                  <a href="https://divsnap.com">Divsnap</a>
                 </div>
                 <div className={styles.subtitle}>{props.devutils}</div>
               </li>
@@ -274,7 +278,7 @@ export default function Home(props) {
             return {
               top,
               left: typeof node === 'string' ? left : Math.max(left, 0),
-            }
+            };
           }}
         />
       ) : null}
@@ -298,11 +302,11 @@ export default function Home(props) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const parser = new Parser()
+  const parser = new Parser();
   const [newsletter] = await Promise.all([
     parser.parseURL('https://mike73f.substack.com/feed'),
     /*
@@ -312,7 +316,7 @@ export async function getStaticProps() {
       fetch(
         'https://api.blackmagic.so/get_tweets_last_24hrs?id=331379561'
       ).then((r) => r.json()),*/
-  ])
+  ]);
 
   return {
     props: {
@@ -346,7 +350,7 @@ export async function getStaticProps() {
         (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime()
       ),
     },
-  }
+  };
 }
 
 function fromNow(
@@ -354,13 +358,13 @@ function fromNow(
   nowDate = Date.now(),
   rft = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' })
 ) {
-  const SECOND = 1000
-  const MINUTE = 60 * SECOND
-  const HOUR = 60 * MINUTE
-  const DAY = 24 * HOUR
-  const WEEK = 7 * DAY
-  const MONTH = 30 * DAY
-  const YEAR = 365 * DAY
+  const SECOND = 1000;
+  const MINUTE = 60 * SECOND;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const WEEK = 7 * DAY;
+  const MONTH = 30 * DAY;
+  const YEAR = 365 * DAY;
   const intervals = [
     { ge: YEAR, divisor: YEAR, unit: 'year' },
     { ge: MONTH, divisor: MONTH, unit: 'month' },
@@ -370,21 +374,21 @@ function fromNow(
     { ge: MINUTE, divisor: MINUTE, unit: 'minute' },
     { ge: 30 * SECOND, divisor: SECOND, unit: 'seconds' },
     { ge: 0, divisor: 1, text: 'just now' },
-  ]
+  ];
   const now =
     typeof nowDate === 'object'
       ? nowDate.getTime()
-      : new Date(nowDate).getTime()
+      : new Date(nowDate).getTime();
   const diff =
-    now - (typeof date === 'object' ? date : new Date(date)).getTime()
-  const diffAbs = Math.abs(diff)
+    now - (typeof date === 'object' ? date : new Date(date)).getTime();
+  const diffAbs = Math.abs(diff);
   for (const interval of intervals) {
     if (diffAbs >= interval.ge) {
-      const x = Math.round(Math.abs(diff) / interval.divisor)
-      const isFuture = diff < 0
+      const x = Math.round(Math.abs(diff) / interval.divisor);
+      const isFuture = diff < 0;
       return interval.unit
         ? rft.format(isFuture ? x : -x, interval.unit)
-        : interval.text
+        : interval.text;
     }
   }
 }
